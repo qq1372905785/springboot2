@@ -27,20 +27,21 @@ public class MainApplication {
         * **/
         Dog dog01 = run.getBean("dog01",Dog.class);
         Dog dog02 = run.getBean("dog01",Dog.class);
-        MyConfig myConfig = run.getBean(MyConfig.class);
-        User user01 = myConfig.user01();
-        User user02 = myConfig.user01();
-        System.out.println(dog02==dog01);   //输出为true,不管获取再多都是单例
         /**
          * 配置类也是组件,在proxyBeanMethod为true的时候，myConfig就会变成代理对象
          * 代理对象每次调用注册bean方法的时候Sprinboot就会去容器中检查是否注册了该组件，如果注册了就不会创建新的组件
          * com.tdcare.boot.config.MyConfig$$EnhancerBySpringCGLIB$$ecc2558a@6ad5923a
          */
-        System.out.println(myConfig);
+        MyConfig myConfig = run.getBean(MyConfig.class);
+        User user01 = myConfig.user01();
+        User user02 = myConfig.user01();
+        System.out.println(dog02==dog01);   //输出为true,不管获取再多都是单例
+
+        System.out.println(myConfig);   //com.tdcare.boot.config.MyConfig$$EnhancerBySpringCGLIB$$ecc2558a@6ad5923a
         System.out.println(user01==user02); //输出为true,不管获取再多都是单例
         System.out.println("组件"+dog01);
 
-        /*String[] beanNames =  run.getBeanNamesForType(User.class);  //通过类名拿到容器中注册User组件的名字
+       /* String[] beanNames =  run.getBeanNamesForType(User.class);  //通过类名拿到容器中注册User组件的名字
         MDCContextMap map = run.getBean(MDCContextMap.class);       //获取到容器中MDCContextMap类型的对象
         System.out.println("+++++++++++++++");
         for (String beaName:beanNames){

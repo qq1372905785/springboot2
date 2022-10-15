@@ -20,11 +20,9 @@ import org.springframework.context.annotation.Import;
  * lite(proxyBeanMethods = false) 不管多少次调用@Bean的时候，都会返回新的对象
  * 类组件之间是否有组件依赖，如果有就是true，如果没有就用false
  * **/
-@Import({User.class,MDCContextMap.class})      //向容器中随便导入两个类
+@Import({User.class,MDCContextMap.class})      //向容器中随便导入两个类,这里是导入了User类和MDCContextMap类
 @Configuration(proxyBeanMethods = true) //告诉Springboot这是一个配置类==配置文件
 public class MyConfig {
-
-
 
     /**
      * 在外部无论对配置类的注册组件方法调用多少次，获取的都是之前注册在容器中的单例对象

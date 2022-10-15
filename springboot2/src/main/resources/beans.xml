@@ -5,6 +5,7 @@
     <bean id="user01" class="com.tdcare.boot.bean.User">
         <property name="name" value="xiaoLi"></property>
         <property name="age" value="20"></property>
+        <property name="dog" value=""></property>
     </bean>
     <bean id="dog1" class="com.tdcare.boot.bean.Dog">
         <property name="name" value="xiaomi"></property>

@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 /*@SpringBootConfiguration        //让Springboot知道这个一个Springboot的配置类
 @EnableAutoConfiguration*/        //开启自动配置
-//@ComponentScan("com.tdcare.boot.mainApplication")   //自定义包扫描路径
-@SpringBootApplication(scanBasePackages = "com.tdcare.boot.mainApplication") //这个也是自定义包扫描路径
+//@ComponentScan("com.tdcare.boot.controller")   //自定义包扫描路径
+@SpringBootApplication(scanBasePackages = "com.tdcare.boot.controller") //这个也是自定义包扫描路径
 public class MainApplication2 {
     public static void main(String[] args) {
         SpringApplication.run(MainApplication2.class);
